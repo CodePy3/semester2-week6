@@ -16,7 +16,14 @@ int factorial(int n) {
   return n * factorial(n - 1);
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv) { 
+  if(argc < 2) {
+    printf("invalid cmd args");
+    return 0;
+  }
+
+  // declare any variables here
+  printf("first num: %d\n", argv[1]);
   /*
   The program should accept a command line argument as follows:
   ./combinatorials n C r
