@@ -14,15 +14,21 @@ void swap_coords(int *x, int *y);
 int main(void) {
   // this creates a 20 x 20 grid (-10 -> +10, plus 1 row & column used for axes.)
   char **grid = initialize_grid();
-  int x = -7, y = 3, z = 4, k = 4;
+  int x = -7, y = 3, z = -4, k = -4;
 
   // you can add a single point like this:
   add_point(grid, x, y);
-  add_point(grid, z, k);
   draw_grid(grid);
 
-  // if you want to 'reset' and remove things, you can re-init it to clear
+
+
   grid = initialize_grid();
+  move_point(&x, &y, -5, -5);
+  add_point(grid, x, y);
+  draw_grid(grid);
+  // if you want to 'reset' and remove things, you can re-init it to clear
+
+  // grid = initialize_grid();
   // draw_grid(grid);
 
   return 0;
@@ -39,7 +45,9 @@ int main(void) {
 void move_point(int *x, int *y, int dx, int dy) {
   // update the coordinates by the given delta
   // i.e. (x+dx, y+dy)
-  *x = &x + dx;
+  x += dx;
+  y += dy;
+  
   
 }
 

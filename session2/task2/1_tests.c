@@ -23,6 +23,33 @@ void test_obvious_palindrome(void) {
     TEST_MSG("Expected 'racecar' to be a palindrome");
 }
 
+void test_single_char(void) {
+    TEST_CHECK(is_palindrome("a") == 1);
+    TEST_MSG("Expected 'a' to be a palindrome");
+}
+
+void test_palindrome(void) {
+    TEST_CHECK(is_palindrome("deed") == 1);
+    TEST_MSG("Expected 'deed' to be a palindrome");
+}
+
+void test_space_case(void) {
+    TEST_CHECK(is_palindrome("race car") == 1);
+    TEST_MSG("Expected 'race car' to be a palindrome");
+}
+
+void test_empty_string(void) {
+    TEST_CHECK(is_palindrome("") == 1);
+    TEST_MSG("Expected '' to be a palindrome");
+}
+
+void test_non_palindrome(void) {
+    TEST_CHECK(is_palindrome("hello") == 0);
+    TEST_MSG("Expected 'hello' NOT to be a palindrome");
+}
+
+
+
 /* ============================================================
  * TODO: Add your test functions below
  *
@@ -48,6 +75,12 @@ void test_obvious_palindrome(void) {
  * ============================================================ */
 TEST_LIST = {
     { "obvious palindrome (racecar)", test_obvious_palindrome },
+    { "single letter (a)", test_single_char},
+    { "obvious palindrome (deed)", test_palindrome },
+    { "Space check (race car)", test_space_case },
+    { "empty string ()", test_empty_string},
+    { "non palindrome (hello)", test_non_palindrome },
+
     /* TODO: Add your tests here, e.g.:
      * { "single character", test_single_char },
      * { "empty string", test_empty_string },
